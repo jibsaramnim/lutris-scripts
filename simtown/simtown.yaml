@@ -1,0 +1,34 @@
+name: SimTown
+game_slug: simtown
+version: 1.1-myabandonware
+slug: simtown-1.1-myabandonware
+description: Install the v1.1 RIP release from MyAbandonware of SimTown.
+technical_notes: "For music playback to work, you must have something like Timidity++ or Qsynth installed and running on your system. Please refer to your distro's documentation on how to set either up correctly."
+runner: wine
+
+script:
+  game:
+    arch: win32
+    args: null
+    exe: $GAMEDIR/drive_c/SIMTOWN/SIMTOWN.exe
+    working_dir: $GAMEDIR/drive_c/SIMTOWN
+    prefix: $GAMEDIR
+
+  files:
+    - rip_archive: "N/A: Select the ZIP file you downloaded from MyAbandonware"
+
+  installer:
+    - task:
+        arch: win32
+        name: create_prefix
+        description: Creating Wine prefix
+    - task:
+        name: winetricks
+        description: Setting environment to Windows 98
+        app: win98
+        silent: true
+    - extract:
+        description: Extracting game
+        file: rip_archive
+        format: zip
+        dst: $GAMEDIR/drive_c/SIMTOWN
