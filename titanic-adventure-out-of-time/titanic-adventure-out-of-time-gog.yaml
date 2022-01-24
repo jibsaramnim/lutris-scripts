@@ -1,0 +1,37 @@
+name: Sid Meier's Pirates
+game_slug: titanic-adventure-out-of-time
+version: GOG
+slug: titanic-adventure-out-of-time-gog
+description: For the GOG release.
+technical_notes:
+runner: wine
+
+script:
+  custom-name: "Titanic: Adventure Out of Time - GOG"
+  files:
+    - inno: https://constexpr.org/innoextract/files/innoextract-1.9/innoextract-1.9-linux.tar.xz
+    - gogsetup: N/A:Please select the exe setup file downloaded from your GOG account.
+  game:
+    arch: win64
+    exe: drive_c/GOG Games/Titanic - Adventure Out of Time/Titanic.exe
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        arch: win64
+        install_gecko: false
+        install_mono: false
+        name: create_prefix
+        prefix: $GAMEDIR
+    - extract:
+        dst: $CACHE/innoextract
+        file: inno
+    - execute:
+        args: --extract --gog $gogsetup --output-dir "$CACHE/TitanicAdventureOutofTime/"
+        file: $CACHE/innoextract/innoextract
+    - merge:
+        dst: $GAMEDIR/drive_c/GOG Games/Titanic - Adventure Out of Time/
+        src: $CACHE/TitanicAdventureOutofTime/
+    - execute:
+        command:
+          cd "$GAMEDIR/drive_c/GOG Games/Titanic - Adventure Out of Time" ; rm
+          -f -r app commonappdata __redist tmp goggame-1792718486.* ;
