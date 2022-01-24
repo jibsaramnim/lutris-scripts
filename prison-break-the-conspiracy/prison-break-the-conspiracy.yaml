@@ -1,0 +1,44 @@
+name: "Prison Break: The Conspiracy"
+game_slug: prison-break-the-conspiracy
+version: CD MyAbandonware
+slug: prison-break-the-conspiracy-cd-myabandonware
+description: "Please manually download the CDROM image from https://www.myabandonware.com/game/prison-break-the-conspiracy-fji."
+technical_notes: "After downloading the disc image from MyAbandonware, mount or extract its contents and point to it when the installation script asks for it."
+runner: wine
+
+script:
+  game:
+    arch: win32
+    exe: $GAMEDIR/drive_c/Program Files/Deep Silver/Prison Break/prisonbreak.exe
+    prefix: $GAMEDIR
+    working_dir: $GAMEDIR/drive_c/Program Files/Deep Silver/Prison Break
+  installer:
+    - task:
+        arch: win32
+        description: Creating Wine prefix
+        name: create_prefix
+        prefix: $GAMEDIR
+    - task:
+        app: winxp
+        arch: win32
+        description: Switching to Windows XP...
+        name: winetricks
+        silent: true
+    - task:
+        app: d3dx9
+        arch: win32
+        description: Installing DirectX 9...
+        name: winetricks
+        silent: true
+    - insert-disc:
+        requires: setup.exe
+    - task:
+        arch: win32
+        description: Running game installation...
+        executable: $DISC/setup.exe
+        name: wineexec
+        prefix: $GAMEDIR
+    - merge:
+        description: Applying no-cd patch...
+        dst: $GAMEDIR/drive_c/Program Files/Deep Silver/Prison Break/
+        src: $DISC/Crack/dvm.dll
