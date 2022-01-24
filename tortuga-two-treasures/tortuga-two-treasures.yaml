@@ -1,0 +1,34 @@
+name: "Tortuga: Two Treasures"
+game_slug: tortuga-two-treasures
+version: MyAbandonware
+slug: tortuga-two-treasures-myabandonware
+description: "The game is considered abandonware, and can be downloaded from https://www.myabandonware.com/game/tortuga-two-treasures-fry."
+technical_notes: "Please download the game and mount the ISO, then run the installer. At the final step of the installer you only need to keep PhysX and optionally DirectX selected. The game uses an old version of PhysX, and even though its installation might throw an error at the end, it will still successfully install."
+runner: wine
+
+script:
+  game:
+    arch: win32
+    exe: drive_c/Program Files/Ascaron Entertainment/Tortuga - Two Treasures/Tortuga-TwoTreasures.exe
+    prefix: $GAMEDIR
+  installer:
+    - insert-disc:
+        requires: TortugaSetup.exe
+    - task:
+        arch: win32
+        name: create_prefix
+        prefix: $GAMEDIR
+    - task:
+        app: d3dx9_27
+        description: Installing DirectX 9...
+        name: winetricks
+    - task:
+        arch: win32
+        description: Running game installation...
+        executable: $DISC/TortugaSetup.exe
+        name: wineexec
+        prefix: $GAMEDIR
+    - merge:
+        description: Applying no-cd patch...
+        dst: $GAMEDIR/drive_c/Program Files/Ascaron Entertainment/Tortuga - Two Treasures/
+        src: $DISC/Crack/
