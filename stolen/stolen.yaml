@@ -1,0 +1,52 @@
+name: SimTown
+game_slug: simtown
+version: CD MyAbandonware
+slug: stolen-cd-myabandonware
+description: "Please manually download the CDROM image and patch files from https://www.myabandonware.com/game/stolen-fir"
+technical_notes: "After downloading the disc image from MyAbandonware, mount or extract its contents by using a tool like AcetoneISO, CDEmu, mdf2iso, or similar. This configuration assumes you have installed the game at the default installation location (c:\Program Files\Stolen). The game update patch unfortunately does not support a silent installation, so you'll have to specify the installation path manually. Be sure to select the appropriate drive at the bottom (c:) first."
+runner: wine
+
+script:
+  files:
+  - patch: 'N/A: Please download patch v887 from https://www.myabandonware.com/game/stolen-fir'
+  game:
+    arch: win32
+    exe: $GAMEDIR/drive_c/Program Files/Stolen/StolenLauncher.exe
+    prefix: $GAMEDIR
+    working_dir: $GAMEDIR/drive_c/Program Files/Stolen
+  installer:
+  - task:
+      arch: win32
+      description: Creating Wine prefix
+      name: create_prefix
+      prefix: $GAMEDIR
+  - task:
+      app: winxp
+      arch: win32
+      description: Switching to Windows XP...
+      name: winetricks
+      silent: true
+  - extract:
+      dst: $CACHE/patch
+      file: patch
+  - task:
+      app: d3dx9
+      arch: win32
+      description: Installing DirectX 9...
+      name: winetricks
+      silent: true
+  - insert-disc:
+      requires: Setup_dvd.exe
+  - task:
+      arch: win32
+      description: Running game installation...
+      executable: $DISC/Setup_dvd.exe
+      name: wineexec
+      prefix: $GAMEDIR
+  - task:
+      arch: win32
+      description: Installing game patch. The game should be installed in c:\Program
+        Files\Stolen.
+      executable: $CACHE/patch/stoleneupatchgmcto887.exe
+      name: wineexec
+      prefix: $GAMEDIR
