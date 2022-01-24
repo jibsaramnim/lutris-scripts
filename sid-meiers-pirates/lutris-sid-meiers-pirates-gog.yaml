@@ -1,0 +1,43 @@
+name: Sid Meier's Pirates
+game_slug: sid-meiers-pirates
+version: 2.0.0.4-gog
+slug: sid-meiers-pirates-gog-v2004
+description: Compatible with GOG's v2.0.0.4 release. Uses dgVoodoo for proper video playback and increased compatibility. For windowed mode it's probably easier to use Wine's built-in virtual desktop functionality. Alternatively you can add "Fullscreen = 0" to the game's Config.ini file, located in drive_c/users/${USER}/Documents/My Games/Sid Meier's Pirates.
+technical_notes: For windowed mode it's probably easier to use Wine's built-in virtual desktop functionality, you can configure this directly through Lutris. Alternatively you can add "Fullscreen = 0" to the game's Config.ini file, located in "drive_c/users/${USER}/Documents/My Games/Sid Meier's Pirates/".
+runner: wine
+
+script:
+  game:
+    arch: win32
+    exe: drive_c/Sid Meier's Pirates/Pirates!.exe
+    prefix: $GAMEDIR
+
+  files:
+    - game: "N/A: Please select the GOG.com Windows installer."
+    - dgvoodoo2: "N/A: Please download dgVoodoo2 from http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2/ and select it here"
+
+  installer:
+    - task:
+        arch: win32
+        name: create_prefix
+        description: Creating Wine prefix...
+        install_mono: false
+    - task:
+        args: /VERYSILENT /SP- /NOCANCEL /SUPRESSMSGBOXES "/DIR=C:\Sid Meier's Pirates"
+        description: Installing Sid Meier's Pirates...
+        executable: game
+        name: wineexec
+        prefix: $GAMEDIR
+    - extract:
+        description: Extracting dgVoodoo2...
+        dst: $CACHE/dgVoodoo2
+        file: dgvoodoo2
+    - move:
+        dst: $GAMEDIR/drive_c/Sid Meier's Pirates/
+        src: $CACHE/dgVoodoo2/MS/x86/D3D9.dll
+    - move:
+        dst: $GAMEDIR/drive_c/Sid Meier's Pirates/
+        src: $CACHE/dgVoodoo2/dgVoodoo.conf
+    - execute:
+        description: Removing dgVooDoo watermark...
+        command: sed -i 's/^dgVoodooWatermark *= *true/dgVoodooWatermark = false/g' "$GAMEDIR/drive_c/Sid Meier's Pirates/dgVoodoo.conf"
