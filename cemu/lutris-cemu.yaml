@@ -1,0 +1,63 @@
+name: Cemu
+game_slug: cemu
+version: v1.26.2d
+slug: cemu-latest
+description: Currently v1.26.2d.
+runner: wine
+script:
+  files:
+    - cemu: https://cemu.info/releases/cemu_1.26.2.zip
+    - fonts: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/cemu/sharedFonts.tar.xz
+    - hook: https://files.sshnuke.net/cemuhook_1262_0576.zip
+    - packs: https://github.com/ActualMandM/cemu_graphic_packs/releases/download/Github849/graphicPacks849.zip
+    - controller: https://lutris.nyc3.cdn.digitaloceanspaces.com/games/cemu/Xbox_Controller.txt
+  game:
+    arch: win64
+    exe: drive_c/Program Files (x86)/Cemu/Cemu.exe
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        arch: win64
+        name: create_prefix
+        prefix: $GAMEDIR
+    - task:
+        app: vcrun2015 win7
+        name: winetricks
+        prefix: $GAMEDIR
+    - extract:
+        dst: $GAMEDIR/drive_c/Program Files (x86)/Cemu
+        file: cemu
+    - extract:
+        dst: $CACHE/sharedFonts
+        file: fonts
+    - move:
+        dst: $GAMEDIR/drive_c/Program Files (x86)/Cemu
+        src: $CACHE/sharedFonts
+    - extract:
+        dst: $CACHE/hook
+        file: hook
+    - merge:
+        dst: $GAMEDIR/drive_c/Program Files (x86)/Cemu
+        src: $CACHE/hook
+    - extract:
+        dst: $GAMEDIR/drive_c/Program Files (x86)/Cemu/graphicPacks/downloadedGraphicPacks
+        file: packs
+    - write_file:
+        content: bleh
+        file: $GAMEDIR/drive_c/Program Files (x86)/Cemu/controllerProfiles/Xbox_Controller.txt
+    - merge:
+        dst: $GAMEDIR/drive_c/Program Files (x86)/Cemu/controllerProfiles
+        src: controller
+  system:
+    disable_compositor: true
+  env:
+    R600_DEBUG: nohyperz
+    __GL_THREADED_OPTIMIZATIONS: 1
+    mesa_glthread: "true"
+    vblank_mode: 0
+  wine:
+    esync: true
+    overrides:
+      dbghelp: native,builtin
+      mscoree: disabled
+      mshtml: disabled

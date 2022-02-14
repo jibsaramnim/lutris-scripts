@@ -52,6 +52,13 @@ Prison Break: The Conspiracy is an action-adventure video game based on the firs
 - [On Lutris](https://lutris.net/games/prison-break-the-conspiracy/).
 - Download available from [MyAbandonware](https://www.myabandonware.com/game/prison-break-the-conspiracy-fji).
 
+## Cemu
+
+The well known Wii U emulator. Submitted an updated installation script which slightly tweaked the existing one like remove the version number from the installation path, so that there won't be a name mis-match with future Cemu updates. Also updated to the recent-most release as of 2022-02-14: Cemu v1.26.2d, with Cemuhook v0.5.7.6, and Graphics Pack v849.
+
+- [Installer script](cemu/lutris-cemu.yaml).
+- [On Lutris](https://lutris.net/games/cemu/).
+
 ---
 
 # Draft Installers
