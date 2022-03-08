@@ -73,6 +73,8 @@ Star Wars Galaxies Legends client will be installed. The client will allow downl
 ### Update notes
 
 - Added specific wine runner version, as the launcher crashes with newer versions.
+- Added specific DXVK version, as there are graphical issues with newer versions
+- Added dgVoodoo's ddraw dll to fix the game not wanting to launch
 - Added font smoothing fix to make game and launcher text legible.
 - Added prefix and working dir.
 

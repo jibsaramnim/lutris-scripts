@@ -1,14 +1,15 @@
 name: "Star Wars Galaxies: An Empire Divided"
-game_slug: star-wars-galaxies-an-empire
+game_slug: star-wars-galaxies-an-empire-divided
 version: swg-legends
 slug: star-wars-galaxies-an-empire-swg-legends
 description: Star Wars Galaxies Legends client will be installed. The client will allow downloading all of the necessary game files. The server is based on the New Game Enhancement (NGE) era of Star Wars Galaxies including all of the expansions (even Jump to Lightspeed).
-technical_notes: "- Added specific wine runner version, as the launcher crashes with newer versions. \n- Added font smoothing fix to make game and launcher text legible. \n- Added prefix and working dir."
+technical_notes: "Change the DXVK version to v1.8.1L. The game has graphical issues with newer versions."
 runner: wine
 
 script:
   files:
     - swglegends: https://swglegends.com/SWGLegendsLauncher.zip
+    - dgvoodoo2: "N/A: Please download dgVoodoo2 from http://dege.freeweb.hu/dgVoodoo2/dgVoodoo2/ and select it here"
   game:
     exe: drive_c/Program Files/StarWarsGalaxiesLegends/SWGLegendsLauncher.exe
     prefix: $GAMEDIR
@@ -20,6 +21,19 @@ script:
     - task:
         app: fontsmooth=rgb
         name: winetricks
+    - extract:
+        description: Extracting dgVoodoo2...
+        dst: $CACHE/dgVoodoo2
+        file: dgvoodoo2
+    - move:
+        dst: $GAMEDIR/drive_c/Program Files/StarWarsGalaxiesLegends/
+        src: $CACHE/dgVoodoo2/MS/x86/DDraw.dll
+    - move:
+        dst: $GAMEDIR/drive_c/Program Files/StarWarsGalaxiesLegends/
+        src: $CACHE/dgVoodoo2/dgVoodoo.conf
+    - execute:
+        description: Removing dgVooDoo watermark...
+        command: sed -i 's/^dgVoodooWatermark *= *true/dgVoodooWatermark = false/g' "$GAMEDIR/drive_c/Program Files/StarWarsGalaxiesLegends/dgVoodoo.conf"
   wine:
     dxvk: true
-    versrion: lutris-5.7-11-x86_64
+    version: lutris-5.7-11-x86_64
