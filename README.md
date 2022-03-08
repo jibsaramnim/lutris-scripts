@@ -59,6 +59,19 @@ The well known Wii U emulator. Submitted an updated installation script which sl
 - [Installer script](cemu/lutris-cemu.yaml)
 - [On Lutris](https://lutris.net/games/cemu/)
 
+## Star Wars Galaxies: An Empire Divided
+
+Star Wars Galaxies Legends client will be installed. The client will allow downloading all of the necessary game files. The server is based on the New Game Enhancement (NGE) era of Star Wars Galaxies including all of the expansions (even Jump to Lightspeed).
+
+### Update notes
+
+- Added specific wine runner version, as the launcher crashes with newer versions.
+- Added font smoothing fix to make game and launcher text legible.
+- Added prefix and working dir.
+
+- [Installer script](star-wars-galaxies-an-empire-divided/swg-legends.yaml)
+- [On Lutris](https://lutris.net/games/star-wars-galaxies-an-empire-divided/)
+
 ---
 
 # Draft Installers

@@ -1,0 +1,25 @@
+name: "Star Wars Galaxies: An Empire Divided"
+game_slug: star-wars-galaxies-an-empire
+version: swg-legends
+slug: star-wars-galaxies-an-empire-swg-legends
+description: Star Wars Galaxies Legends client will be installed. The client will allow downloading all of the necessary game files. The server is based on the New Game Enhancement (NGE) era of Star Wars Galaxies including all of the expansions (even Jump to Lightspeed).
+technical_notes: "- Added specific wine runner version, as the launcher crashes with newer versions. \n- Added font smoothing fix to make game and launcher text legible. \n- Added prefix and working dir."
+runner: wine
+
+script:
+  files:
+    - swglegends: https://swglegends.com/SWGLegendsLauncher.zip
+  game:
+    exe: drive_c/Program Files/StarWarsGalaxiesLegends/SWGLegendsLauncher.exe
+    prefix: $GAMEDIR
+    working_dir: drive_c/Program Files/StarWarsGalaxiesLegends/
+  installer:
+    - extract:
+        dst: $GAMEDIR/drive_c/Program Files/StarWarsGalaxiesLegends/
+        file: swglegends
+    - task:
+        app: fontsmooth=rgb
+        name: winetricks
+  wine:
+    dxvk: true
+    versrion: lutris-5.7-11-x86_64
