@@ -2,7 +2,7 @@ name: Cemu
 game_slug: cemu
 version: v1.26.2d
 slug: cemu-latest
-description: Currently v1.26.2d.
+description: Experimental software to emulate Wii U applications on PC.
 runner: wine
 script:
   files:

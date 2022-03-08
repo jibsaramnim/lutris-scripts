@@ -54,12 +54,13 @@ Prison Break: The Conspiracy is an action-adventure video game based on the firs
 
 ## Cemu
 
-The well known Wii U emulator. Submitted an updated installation script which slightly tweaked the existing one like remove the version number from the installation path, so that there won't be a name mis-match with future Cemu updates. Also updated to the recent-most release as of 2022-02-14: Cemu v1.26.2d, with Cemuhook v0.5.7.6, and Graphics Pack v849.
+Experimental software to emulate Wii U applications on PC.
 
 ### Update notes
 
 - Updated installation path to be future-proof (Removed version from path)
 - Updated to Cemu 1.26.2f
+- Updated Cemuhook to v0.5.7.6
 - Updated GraphicsPack to v849
 
 - [Installer script](cemu/lutris-cemu.yaml)
