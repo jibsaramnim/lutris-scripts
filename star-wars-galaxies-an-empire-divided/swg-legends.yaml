@@ -36,4 +36,5 @@ script:
         command: sed -i 's/^dgVoodooWatermark *= *true/dgVoodooWatermark = false/g' "$GAMEDIR/drive_c/Program Files/StarWarsGalaxiesLegends/dgVoodoo.conf"
   wine:
     dxvk: true
+    dxvk_version: v1.8.1L
     version: lutris-5.7-11-x86_64
