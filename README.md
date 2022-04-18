@@ -18,6 +18,11 @@ Star Wars Galaxies Legends client will be installed. The client will allow downl
 - Added font smoothing fix to make game and launcher text legible.
 - Added prefix and working dir.
 
+### Version history
+
+- **2022-04-18:** Updated script to make use of Lutris v0.5.10's new built-in dgVoodoo2 support.
+- **2022-03-08:** Submitted installer requiring a manually downloaded dgVoodoo zip file.
+
 - [Installer script](star-wars-galaxies-an-empire-divided/swg-legends.yaml)
 - [On Lutris](https://lutris.net/games/star-wars-galaxies-an-empire-divided/)
 
