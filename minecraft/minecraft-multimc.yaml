@@ -1,0 +1,18 @@
+name: Minecraft
+game_slug: Minecraft
+version: MultiMC
+slug: minecraft-multimc
+description: MultiMC is a free, open source launcher for Minecraft, managed by @peterixxx and @02JanDal. It allows you to have multiple, separate instances of Minecraft (each with their own mods, texture packs, saves, etc) and helps you manage them and their associated options with a simple interface.https://multimc.org/
+technical_notes: Does not include Java runtime
+runner: linux
+script:
+  files:
+    - mmc-stable: https://files.multimc.org/downloads/mmc-stable-lin64.tar.gz
+  game:
+    exe: MultiMC
+    working_dir: $GAMEDIR
+  installer:
+    - extract:
+        file: mmc-stable
+        dst: $GAMEDIR
+    - chmodx: $GAMEDIR/MultiMC
