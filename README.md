@@ -12,8 +12,8 @@ Installs the GOG version of Shenmue III.
 
 ### Links
 
-    - [Installer script](shenmue-iii/shenmue-iii-gog.yaml)
-    - [On Lutris](https://lutris.net/games/shenmue-iii/)
+- [Installer script](shenmue-iii/shenmue-iii-gog.yaml)
+- [On Lutris](https://lutris.net/games/shenmue-iii/)
 
 ## Minecraft: Java Edition
 
@@ -25,8 +25,8 @@ MultiMC is a free, open source launcher for Minecraft, managed by @peterixxx and
 
 ### Links
 
-    - [Installer script](minecraft/minecraft-multimc.yaml)
-    - [On Lutris](https://lutris.net/games/minecraft/)
+- [Installer script](minecraft/minecraft-multimc.yaml)
+- [On Lutris](https://lutris.net/games/minecraft/)
 
 ## Star Wars Galaxies: An Empire Divided
 
@@ -34,21 +34,21 @@ Star Wars Galaxies Legends client will be installed. The client will allow downl
 
 ### Update notes
 
-    - Added specific wine runner version, as the launcher crashes with newer versions.
-    - Added specific DXVK version, as there are graphical issues with newer versions
-    - Added dgVoodoo's ddraw dll to fix the game not wanting to launch
-    - Added font smoothing fix to make game and launcher text legible.
-    - Added prefix and working dir.
+- Added specific wine runner version, as the launcher crashes with newer versions.
+- Added specific DXVK version, as there are graphical issues with newer versions
+- Added dgVoodoo's ddraw dll to fix the game not wanting to launch
+- Added font smoothing fix to make game and launcher text legible.
+- Added prefix and working dir.
 
 ### Version history
 
-    - **2022-04-18:** Updated script to make use of Lutris v0.5.10's new built-in dgVoodoo2 support.
-    - **2022-03-08:** Submitted installer requiring a manually downloaded dgVoodoo zip file.
+- **2022-04-18:** Updated script to make use of Lutris v0.5.10's new built-in dgVoodoo2 support.
+- **2022-03-08:** Submitted installer requiring a manually downloaded dgVoodoo zip file.
 
 ### Links
 
-    - [Installer script](star-wars-galaxies-an-empire-divided/swg-legends.yaml)
-    - [On Lutris](https://lutris.net/games/star-wars-galaxies-an-empire-divided/)
+- [Installer script](star-wars-galaxies-an-empire-divided/swg-legends.yaml)
+- [On Lutris](https://lutris.net/games/star-wars-galaxies-an-empire-divided/)
 
 ## Cemu
 
@@ -56,15 +56,15 @@ Experimental software to emulate Wii U applications on PC.
 
 ### Update notes
 
-    - Updated installation path to be future-proof (Removed version from path)
-    - Updated to Cemu 1.26.2f
-    - Updated Cemuhook to v0.5.7.6
-    - Updated GraphicsPack to v849
+- Updated installation path to be future-proof (Removed version from path)
+- Updated to Cemu 1.26.2f
+- Updated Cemuhook to v0.5.7.6
+- Updated GraphicsPack to v849
 
 ### Links
 
-    - [Installer script](cemu/lutris-cemu.yaml)
-    - [On Lutris](https://lutris.net/games/cemu/)
+- [Installer script](cemu/lutris-cemu.yaml)
+- [On Lutris](https://lutris.net/games/cemu/)
 
 ## Prison Break: The Conspiracy
 
@@ -74,8 +74,8 @@ Prison Break: The Conspiracy is an action-adventure video game based on the firs
 
 ### Links
 
-    - [Installer script](prison-break-the-conspiracy/prison-break-the-conspiracy.yaml)
-    - [On Lutris](https://lutris.net/games/prison-break-the-conspiracy/)
+- [Installer script](prison-break-the-conspiracy/prison-break-the-conspiracy.yaml)
+- [On Lutris](https://lutris.net/games/prison-break-the-conspiracy/)
 
 - Download available from [MyAbandonware](https://www.myabandonware.com/game/prison-break-the-conspiracy-fji)
 
@@ -87,9 +87,9 @@ Stolen is a third-person stealth action game in which you play as a female thief
 
 ### Links
 
-    - [Installer script](stolen/stolen.yaml)
-    - [On Lutris](https://lutris.net/games/stolen/)
-    - Download available from [MyAbandonware](https://www.myabandonware.com/game/stolen-fir)
+- [Installer script](stolen/stolen.yaml)
+- [On Lutris](https://lutris.net/games/stolen/)
+- Download available from [MyAbandonware](https://www.myabandonware.com/game/stolen-fir)
 
 ## SimTown
 
@@ -99,9 +99,9 @@ SimTown is one of several entries in the city-building simulation series, SimCit
 
 ### Links
 
-    - [Installer script](simtown/simtown.yaml)
-    - [On Lutris](https://lutris.net/games/simtown/)
-    - Download available from [MyAbandonware](https://www.myabandonware.com/game/simtown-bc3)
+- [Installer script](simtown/simtown.yaml)
+- [On Lutris](https://lutris.net/games/simtown/)
+- Download available from [MyAbandonware](https://www.myabandonware.com/game/simtown-bc3)
 
 ## Sid Meier's Pirates!
 
@@ -109,9 +109,9 @@ Sail the Caribbean, marauding all on the high seas or ally your ship and crew as
 
 ### Links
 
-    - [Installer script](sid-meiers-pirates/sid-meiers-pirates-gog.yaml)
-    - [On Lutris](https://lutris.net/games/sid-meiers-pirates/)
-    - [Available on GoG](https://www.gog.com/game/sid_meiers_pirates)
+- [Installer script](sid-meiers-pirates/sid-meiers-pirates-gog.yaml)
+- [On Lutris](https://lutris.net/games/sid-meiers-pirates/)
+- [Available on GoG](https://www.gog.com/game/sid_meiers_pirates)
 
 ## Tortuga: Two Treasures
 
@@ -119,9 +119,9 @@ Tortuga: Two Treasures is a pirate-themed action adventure game. Players take th
 
 ### Links
 
-    - [Installer script](tortuga-two-treasures/tortuga-two-treasures.yaml)
-    - [On Lutris](https://lutris.net/games/tortuga-two-treasures/)
-    - Download available from [MyAbandonware](https://www.myabandonware.com/game/tortuga-two-treasures-fry)
+- [Installer script](tortuga-two-treasures/tortuga-two-treasures.yaml)
+- [On Lutris](https://lutris.net/games/tortuga-two-treasures/)
+- Download available from [MyAbandonware](https://www.myabandonware.com/game/tortuga-two-treasures-fry)
 
 ---
 
