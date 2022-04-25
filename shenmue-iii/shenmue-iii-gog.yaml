@@ -1,0 +1,30 @@
+name: "Shenmue III"
+game_slug: shenmue-iii
+version: GOG
+slug: shenmue-iii-gog
+description: "Installs the GOG version of Shenmue III."
+technical_notes: "If you'd like to install the DLC, please use the 'run exe inside wine prefix' option after installing the base game."
+runner: wine
+
+script:
+  files:
+    - gogsetup: "N/A: Please select your GOG installer file."
+  game:
+    game_id: shenmue_iii
+    gogid: 1832790021
+    arch: win64
+    exe: drive_c/GOG Games/Shenmue III/Shenmue3/Binaries/Win64/Shenmue3-Win64-Shipping.exe
+    prefix: $GAMEDIR
+    working_dir: drive_c/GOG Games/Shenmue III/
+  installer:
+    - task:
+        arch: win64
+        name: create_prefix
+        prefix: $GAMEDIR
+    - task:
+        description: Installing Shenmue III...
+        executable: gogsetup
+        name: wineexec
+        prefix: $GAMEDIR
+  wine:
+    dxvk: true
