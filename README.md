@@ -6,6 +6,15 @@ A small collection of Lutris game installer scripts I have created. All of these
 
 Here's a short list of game installers included in this repository. The easiest way to use them would be via the official Lutris website, but as installer submissions are manually reviewed, it can sometimes take quite a bit of time before they end up available through the site. In that case you can download any one of these and install them on your system by using the "Install from a local install script" option in Lutris (introduced in v0.5.10), or by launching Lutris through the command line with the `-i` flag, like so: `lutris -i ~/Downloads/tortuga-two-treasures.yaml`.
 
+## System Shock 2 (GOG)
+
+Installs the GOG version using Wine + directplay to enable multiplayer. Updated installer script to support more modern version of Lutris
+
+### Links
+
+- [Installer script](system-shock-2/system-shock-2-gog.yaml)
+- [On Lutris](https://lutris.net/games/system-shock-2/)
+
 ## Anno 1503 A.D. (GOG)
 
 Installs the GOG release version of Anno 1503 A.D. with pinned wine runner version to ensure maximum compatibility.

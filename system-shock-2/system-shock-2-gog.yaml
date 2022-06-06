@@ -1,0 +1,30 @@
+name: System Shock 2
+game_slug: system-shock-2
+version: GOG
+slug: system-shock-2-gog
+description: Installs the GOG version using Wine + directplay to enable multiplayer.
+runner: wine
+script:
+  files:
+    - goginstaller: N/A:Select the System Shock 2 installer downloaded from GOG
+  game:
+    arch: win32
+    exe: $GAMEDIR/drive_c/GOG Games/System Shock 2/SS2.exe
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        arch: win32
+        name: create_prefix
+        prefix: $GAMEDIR
+    - task:
+        executable: goginstaller
+        name: wineexec
+    - task:
+        app: directplay
+        description: Installing multiplayer dependency
+        name: winetricks
+        prefix: $GAMEDIR
+  system:
+    pulse_latency: false
+  wine:
+    version: lutris-5.6-5-x86_64
