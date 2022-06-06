@@ -1,0 +1,51 @@
+name: Mortyr 2093-1944
+game_slug: mortry-2093-1944
+version: MyAbandonware
+slug: mortry-2093-1944-abandonware
+description: Installs the MyAbandonware version of Mortyr 2093-1944.
+technical_notes: "The game's speed is bound to the framerate. Be sure to use strangler or mangohud's FPS limiting functionality to limit the framerate to 30. Mount the ISO, launch the installation script and point it to the setup file on the ISO. If you need to convert the MyAbandonware bin/cue files to .iso, `bchunk Mortyr.bin Mortyr.cue Mortyr.iso` will do the trick."
+runner: wine
+
+script:
+  files:
+    - setup: "N/A: Please select setup.exe from the ISO you have downloaded and mounted from https://www.myabandonware.com/game/mortyr-2093-1944-cjy"
+  game:
+    arch: win32
+    exe: $GAMEDIR/drive_c/Program Files/Mirage Media/Mortyr/Mortyr.exe
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        arch: win32
+        name: create_prefix
+        prefix: $GAMEDIR
+        install_mono: true
+    - task:
+        app: winxp
+        arch: win32
+        description: Switching to Windows XP...
+        name: winetricks
+        silent: true
+    - task:
+        app: d3dx9
+        arch: win32
+        description: Installing DirectX 9...
+        name: winetricks
+        silent: true
+    - insert-disc:
+        requires: setup.exe
+    - task:
+        arch: win32
+        description: Running game installation...
+        executable: setup
+        name: wineexec
+        prefix: $GAMEDIR
+        return_code: 18432
+  system:
+    fps_limit: 30
+  wine:
+    Desktop: true
+    WineDesktop: 1024x768
+    dxvk: true
+    dgvoodoo2: true
+    esync: false
+    version: lutris-5.6-5-x86_64

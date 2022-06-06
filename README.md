@@ -6,6 +6,19 @@ A small collection of Lutris game installer scripts I have created. All of these
 
 Here's a short list of game installers included in this repository. The easiest way to use them would be via the official Lutris website, but as installer submissions are manually reviewed, it can sometimes take quite a bit of time before they end up available through the site. In that case you can download any one of these and install them on your system by using the "Install from a local install script" option in Lutris (introduced in v0.5.10), or by launching Lutris through the command line with the `-i` flag, like so: `lutris -i ~/Downloads/tortuga-two-treasures.yaml`.
 
+## Mortyr 2093-1944
+
+Installs the MyAbandonware version of Mortyr 2093-1944.
+
+**Technical Notes:** The game's speed is bound to the framerate. Be sure to use strangler or mangohud's FPS limiting functionality to limit the framerate to 30.
+
+Mount the ISO, launch the installation script and point it to the setup file on the ISO. If you need to convert the MyAbandonware bin/cue files to .iso, `bchunk Mortyr.bin Mortyr.cue Mortyr.iso` will do the trick.
+
+### Links
+
+- [Installer script](mortyr-2093-1944/mortyr-2093-1944-abandonware.yaml)
+- [On Lutris](https://lutris.net/games/mortyr-2093-1944/)
+
 ## System Shock 2 (GOG)
 
 Installs the GOG version using Wine + directplay to enable multiplayer. Updated installer script to support more modern version of Lutris
