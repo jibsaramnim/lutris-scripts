@@ -1,0 +1,36 @@
+name: Anno 1503 A.D.
+game_slug: anno-1503-ad
+version: GOG
+slug: anno-1503-ad-gog
+description: Installs the GOG release version of Anno 1503 A.D. with pinned wine runner version to ensure maximum compatibility.
+runner: wine
+script:
+  files:
+    - installer: N/A:Please select the GOG.com Windows installer.
+  game:
+    arch: win32
+    exe: $GAMEDIR/drive_c/GOG Games/Anno 1503 AD/1503Startup.exe
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        arch: win32
+        description: Creating Wine prefix
+        name: create_prefix
+        prefix: $GAMEDIR
+    - task:
+        description: Installing...
+        executable: installer
+        name: wineexec
+        prefix: $GAMEDIR
+    - task:
+        app: windowmanagermanaged=n
+        name: winetricks
+        prefix: $GAMEDIR
+        silent: true
+    - task:
+        app: directmusic
+        name: winetricks
+        prefix: $GAMEDIR
+        silent: true
+  wine:
+    version: lutris-5.6-5-x86_64
