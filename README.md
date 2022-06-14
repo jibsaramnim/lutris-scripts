@@ -18,6 +18,7 @@ Mount the ISO, launch the installation script and point it to the setup file on 
 
 - [Installer script](mortyr-2093-1944/mortyr-2093-1944-abandonware.yaml)
 - [On Lutris](https://lutris.net/games/mortyr-2093-1944/)
+- Download available from [MyAbandonware](https://www.myabandonware.com/game/mortyr-2093-1944-cjy)
 
 ## System Shock 2 (GOG)
 
