@@ -29,14 +29,14 @@ script:
         prefix: $GAMEDIR
         return_code: 256
     - task:
+        app: fontsmooth=rgb
+        name: winetricks
+    - task:
         arch: win32
-        description: Installing Freelancer HD Edition.
+        description: "Installing Freelancer HD Edition. When asked, please install the HD mod to C:\\Program Files\\Microsoft Games\\Freelancer HD Edition"
         executable: flhd
         name: wineexec
         prefix: $GAMEDIR
-    - task:
-        app: fontsmooth=rgb
-        name: winetricks
   wine:
     dxvk: true
     version: lutris-5.7-11-x86_64
