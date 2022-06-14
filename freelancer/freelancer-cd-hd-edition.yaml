@@ -1,0 +1,42 @@
+name: Freelancer
+game_slug: freelancer
+version: CD + HD Edition
+slug: freelancer-cd-hd-edition
+description: Installs the HD Edition https://freelancerhd.com
+technical_notes: "Download the ISO from MyAbandonware: https://www.myabandonware.com/game/freelancer-bbb"
+runner: wine
+
+script:
+  files:
+    - flhd: https://github.com/BC46/freelancer-hd-edition/releases/download/0.5/FreelancerHDSetup_v0_5-3.exe
+  game:
+    arch: win32
+    exe: $GAMEDIR/drive_c/Program Files/Microsoft Games/Freelancer HD Edition/EXE/Freelancer.exe
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        arch: win32
+        name: create_prefix
+        prefix: $GAMEDIR
+        install_mono: true
+    - insert-disc:
+        requires: setup.exe
+    - task:
+        arch: win32
+        description: Installing Freelancer. Please choose "Express install".
+        executable: $DISC/setup.exe
+        name: wineexec
+        prefix: $GAMEDIR
+        return_code: 256
+    - task:
+        arch: win32
+        description: Installing Freelancer HD Edition.
+        executable: flhd
+        name: wineexec
+        prefix: $GAMEDIR
+    - task:
+        app: fontsmooth=rgb
+        name: winetricks
+  wine:
+    dxvk: true
+    version: lutris-5.7-11-x86_64
