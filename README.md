@@ -54,6 +54,7 @@ Installs the GOG release version of Anno 1503 A.D. with pinned wine runner versi
 
 - [Installer script](anno-1503-ad/anno-1503-ad-gog.yaml)
 - [On Lutris](https://lutris.net/games/anno-1503/)
+- [On GOG](https://www.gog.com/game/anno_1503_ad)
 
 ## Shenmue III
 
@@ -63,6 +64,7 @@ Installs the GOG version of Shenmue III.
 
 - [Installer script](shenmue-iii/shenmue-iii-gog.yaml)
 - [On Lutris](https://lutris.net/games/shenmue-iii/)
+- [On GOG](https://www.gog.com/game/shenmue_iii)
 
 ## Minecraft: Java Edition
 
@@ -114,6 +116,7 @@ Experimental software to emulate Wii U applications on PC.
 
 - [Installer script](cemu/lutris-cemu.yaml)
 - [On Lutris](https://lutris.net/games/cemu/)
+- [Cemu website](http://cemu.info/)
 
 ## Prison Break: The Conspiracy
 
@@ -160,7 +163,7 @@ Sail the Caribbean, marauding all on the high seas or ally your ship and crew as
 
 - [Installer script](sid-meiers-pirates/sid-meiers-pirates-gog.yaml)
 - [On Lutris](https://lutris.net/games/sid-meiers-pirates/)
-- [Available on GoG](https://www.gog.com/game/sid_meiers_pirates)
+- [On GOG](https://www.gog.com/game/sid_meiers_pirates)
 
 ## Tortuga: Two Treasures
 
