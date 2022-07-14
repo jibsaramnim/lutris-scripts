@@ -1,0 +1,36 @@
+name: Outcast - Second Contact
+game_slug: outcast-second-contact
+version: gog
+slug: outcast-second-contact-gog
+description: Install the GOG version of Outcast - Second Contact.
+runner: wine
+script:
+  files:
+    - gogsetup: "N/A: Please select the GOG Windows installer file"
+  game:
+    arch: win64
+    gogid: 2109390794
+    exe: drive_c/GOG Games/Outcast - Second Contact/outcast.exe
+    working_dir: drive_c/GOG Games/Outcast - Second Contact/
+    prefix: $GAMEDIR
+  installer:
+    - task:
+        arch: win64
+        name: create_prefix
+        prefix: $GAMEDIR
+    - task:
+        app: vcrun2015 win10
+        arch: win64
+        name: winetricks
+        prefix: $GAMEDIR
+    - task:
+        description: Installing Outcast - Second Contact...
+        executable: gogsetup
+        name: wineexec
+        prefix: $GAMEDIR
+  system:
+    single_cpu: true
+    limit_cpu_count: 4
+  wine:
+    esync: false
+    fsync: false
